@@ -20,6 +20,7 @@ jobs:
         distribution: microsoft
         cache: maven
     - name: Coverity Full Scan
+      if: ${{ github.event_name != 'pull_request' }}
       uses: blackduck-inc/black-duck-security-scan@v2.0.0
       with:
         coverity_url: ${{ vars.COVERITY_URL }}
@@ -35,23 +36,23 @@ jobs:
         # include_diagnostics: true
         
     - name: Coverity PR Scan
-        if: ${{ github.event_name == 'pull_request' }}
-        uses: blackduck-inc/black-duck-security-scan@v2.0.0
-        with:
-          coverity_url: ${{ vars.COVERITY_URL }}
-          coverity_user: ${{ secrets.COVERITY_USER }}
-          coverity_passphrase: ${{ secrets.COVERITY_PASSPHRASE }}
-          coverity_project_name: ${{ github.event.repository.name }}
-          coverity_stream_name: ${{ github.event.repository.name }}-${{ github.base_ref }}
+      if: ${{ github.event_name == 'pull_request' }}
+      uses: blackduck-inc/black-duck-security-scan@v2.0.0
+      with:
+        coverity_url: ${{ vars.COVERITY_URL }}
+        coverity_user: ${{ secrets.COVERITY_USER }}
+        coverity_passphrase: ${{ secrets.COVERITY_PASSPHRASE }}
+        coverity_project_name: ${{ github.event.repository.name }}
+        coverity_stream_name: ${{ github.event.repository.name }}-${{ github.base_ref }}
 
-          ### Below configuration is used to enable feedback from Coverity security testing as pull request comment
-          coverity_prComment_enabled: true
-          github_token: ${{ secrets.GITHUB_TOKEN }} # Mandatory when coverity_prComment_enabled is set to 'true' 
+      ### Below configuration is used to enable feedback from Coverity security testing as pull request comment
+        coverity_prComment_enabled: true
+        github_token: ${{ secrets.GITHUB_TOKEN }} # Mandatory when coverity_prComment_enabled is set to 'true' 
           
-          # project_directory: ${{ vars.PROJECT_DIRECTORY }}  
+      # project_directory: ${{ vars.PROJECT_DIRECTORY }}  
      
      ### Uncomment below configuration if Bridge CLI diagnostic files needs to be uploaded
-          # include_diagnostics: true
+      # include_diagnostics: true
 
 #    - name: Save Logs
 #      if: always()
