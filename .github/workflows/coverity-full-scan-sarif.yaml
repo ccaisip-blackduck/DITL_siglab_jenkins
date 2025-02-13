@@ -1,6 +1,25 @@
 # sample github workflow file
 # uses full Coverity Analysis package to upload a SARIF to GitHub -> Security issues    
-      name: Coverity Full Scan Sarif
+# example workflow for Coverity scans using the Black Duck Security Scan Action
+# https://github.com/marketplace/actions/black-duck-security-scan
+name: coverity-sarif-report
+on:
+  push:
+    branches: [ main, master, develop, stage, release ]
+  workflow_dispatch:
+jobs:
+  coverity:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Source
+      uses: actions/checkout@v4
+    - name: Setup Java JDK
+      uses: actions/setup-java@v4
+      with:
+        java-version: 17
+        distribution: microsoft
+        cache: maven
+    - name: Coverity Full Scan
       uses: blackduck-inc/black-duck-security-scan@v2.0.0
       with:
         coverity_url: ${{ vars.COVERITY_URL }}
@@ -25,3 +44,10 @@
       uses: github/codeql-action/upload-sarif@v3
       with:
         sarif_file: results.sarif
+#    - name: Save Logs
+#      if: always()
+#      uses: actions/upload-artifact@v4
+#      with:
+#        name: bridge-logs
+#        path: ${{ github.workspace }}/.bridge
+#        include-hidden-files: true
