@@ -11,7 +11,7 @@ public class SqlInjection {
     }
 
     /* for demo, rename function */
-    public static ResultSet doQuery_demo_0213(HttpServletRequest request, Connection connection) throws SQLException {
+    public static ResultSet doQuery_demo_02132025(HttpServletRequest request, Connection connection) throws SQLException {
         String customerName = request.getParameter("customerName");
         String query = "SELECT account_balance FROM user_data WHERE user_name = " + customerName;
         Statement statement = connection.createStatement();
