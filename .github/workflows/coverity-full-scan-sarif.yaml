@@ -1,4 +1,6 @@
-    - name: Coverity Full Scan
+# sample github workflow file
+# uses full Coverity Analysis package to upload a SARIF to GitHub -> Security issues    
+      name: Coverity Full Scan Sarif
       uses: blackduck-inc/black-duck-security-scan@v2.0.0
       with:
         coverity_url: ${{ vars.COVERITY_URL }}
