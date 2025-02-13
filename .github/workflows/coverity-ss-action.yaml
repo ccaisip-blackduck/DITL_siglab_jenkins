@@ -40,7 +40,7 @@ jobs:
       uses: blackduck-inc/black-duck-security-scan@v2.0.0
       with:
         coverity_url: ${{ vars.COVERITY_URL }}
-        coverity_user: ${{ secrets.COVERITY_USER }}
+        coverity_user: ${{ secrets.COV_USER }}
         coverity_passphrase: ${{ secrets.COVERITY_PASSPHRASE }}
         coverity_project_name: ${{ github.event.repository.name }}
         coverity_stream_name: ${{ github.event.repository.name }}-${{ github.base_ref }}
