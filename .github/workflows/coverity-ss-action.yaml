@@ -22,6 +22,7 @@ jobs:
     - name: Coverity Scan
       uses: blackduck-inc/black-duck-security-scan@v2.0.0
       with:
+        echo "Branch name ${GIT_BRANCH_NAME}"
         coverity_url: ${{ vars.COVERITY_URL }}
         coverity_user: ${{ secrets.COV_USER }}
         coverity_passphrase: ${{ secrets.COVERITY_PASSPHRASE }}
