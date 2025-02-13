@@ -1,7 +1,7 @@
 # sample github workflow file
 # uses full Coverity Analysis package to upload a SARIF to GitHub -> Security issues    
 # example workflow for Coverity scans using the Black Duck Security Scan Action
-# https://github.com/marketplace/actions/black-duck-security-scan
+# https://github.com/marketplace/actions/black-duck-security-scan 
 name: coverity-sarif-report
 on:
   push:
