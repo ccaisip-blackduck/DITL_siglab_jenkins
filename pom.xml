@@ -34,6 +34,13 @@
       -->
       <version>2.24.3</version>
     </dependency>
+
+    <!-- demo: xstream 1.4.18 has high vuln, no critical (blocker) -->
+    <dependency>
+      <groupId>com.thoughtworks.xstream</groupId>
+      <artifactId>xstream</artifactId>
+      <version>1.4.18</version>
+    </dependency>
   </dependencies>
 
   <properties>
