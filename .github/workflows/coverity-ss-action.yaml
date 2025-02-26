@@ -30,7 +30,8 @@ jobs:
         coverity_stream_name: ccaisip-${{ github.event.repository.name }}-${{ github.ref_name }}
 # NOTE: the testing.coverity.synopsys.com view ccaisi Outstanding Issues is set to Impact "Audit" to avoid break-build        
         coverity_policy_view: ${{ github.event_name != 'pull_request' && 'ccaisip Outstanding Issues' || '' }}
-        coverity_prComment_enabled: true
+
+        # coverity_prComment_enabled: true
         github_token: ${{ secrets.GITHUB_TOKEN }}
         # coverity_local: true
         # include_diagnostics: true
