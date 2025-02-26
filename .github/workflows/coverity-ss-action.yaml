@@ -1,5 +1,5 @@
 # example workflow for Coverity scans using the Black Duck Security Scan Action
-# https://github.com/marketplace/actions/black-duck-security-scan 
+# https://github.com/marketplace/actions/black-duck-security-scan   
 name: coverity-ss-action
 on:
   push:
