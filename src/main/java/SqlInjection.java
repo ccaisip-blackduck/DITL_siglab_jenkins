@@ -18,4 +18,12 @@ public class SqlInjection {
         ResultSet results = statement.executeQuery(query);
         return(results);
     }
+
+    public static ResultSet doQuery_demo0225(HttpServletRequest request, Connection connection) throws SQLException {
+        String customerName_0225 = request.getParameter("customerName");
+        String query = "SELECT account_balance FROM user_data WHERE user_name = " + customerName_0225;
+        Statement statement = connection.createStatement();
+        ResultSet results = statement.executeQuery(query);
+        return(results);
+    }
 }
