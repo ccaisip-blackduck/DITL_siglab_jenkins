@@ -14,12 +14,12 @@ pipeline {
             }
         }
         stage('Black Duck') {
-            when {
-                anyOf {
-                    environment name: 'FULLSCAN', value: 'true'
-                    environment name: 'PRSCAN', value: 'true'
-                }
-            }
+//            when {
+//                anyOf {
+//                    environment name: 'FULLSCAN', value: 'true'
+//                    environment name: 'PRSCAN', value: 'true'
+//                }
+//            }
             steps {
                 sh 'echo inside Black Duck Stage'
                 echo "REPO_NAME is  ${REPO_NAME}"
