@@ -49,11 +49,11 @@ pipeline {
             }
         }
     }
-    post {
-        always {
-            archiveArtifacts allowEmptyArchive: true, artifacts: '.bridge/bridge.log'
-            //zip archive: true, dir: '.bridge', zipFile: 'bridge-logs.zip'
-            cleanWs()
-        }
-    }
+//    post {
+//        always {
+//            archiveArtifacts allowEmptyArchive: true, artifacts: '.bridge/bridge.log'
+//            //zip archive: true, dir: '.bridge', zipFile: 'bridge-logs.zip'
+//            cleanWs()
+//        }
+//    }
 }
