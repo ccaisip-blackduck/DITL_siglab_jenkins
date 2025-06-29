@@ -14,7 +14,6 @@ pipeline {
             }
         }
         stage('Black Duck') {
-            echo "REPO_NAME is  ${REPO_NAME}"
             when {
                 anyOf {
                     environment name: 'FULLSCAN', value: 'true'
@@ -23,6 +22,8 @@ pipeline {
             }
             steps {
                 sh 'echo inside Black Duck Stage'
+                echo "REPO_NAME is  ${REPO_NAME}"
+                echo "GITHUB_TOKEN is ${GITHUB_TOKEN}"
 //                security_scan product: 'blackducksca',
 //                    blackducksca_scan_failure_severities: 'BLOCKER',
 //                    blackducksca_prComment_enabled: true,
