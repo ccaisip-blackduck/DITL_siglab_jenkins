@@ -5,7 +5,7 @@ pipeline {
         FULLSCAN = "${env.BRANCH_NAME ==~ /^(main|master|develop|stage|release)$/ ? 'true' : 'false'}"
         PRSCAN = "${env.CHANGE_TARGET ==~ /^(main|master|develop|stage|release)$/ ? 'true' : 'false'}"
         GITHUB_TOKEN = credentials('github-pat')
-        DETECT_PROJECT_NAME = "${env.REPO_NAME}"
+        DETECT_PROJECT_NAME = "ccaisip_jenkins_${env.REPO_NAME}"
     }
     stages {
         stage('Build') { 
@@ -25,13 +25,13 @@ pipeline {
                 echo "REPO_NAME is  ${REPO_NAME}"
                 echo "GITHUB_TOKEN is ${GITHUB_TOKEN}"
                 echo "DEECT_PROJECT_NAME is ${DETECT_PROJECT_NAME}"
-//                security_scan product: 'blackducksca',
-//                    blackducksca_scan_failure_severities: 'BLOCKER',
-//                    blackducksca_prComment_enabled: true,
-//                    blackducksca_reports_sarif_create: true,
-//                    mark_build_status: 'UNSTABLE',
-//                    github_token: "$GITHUB_TOKEN",
-//                    include_diagnostics: false
+                security_scan product: 'blackducksca',
+                    blackducksca_scan_failure_severities: 'BLOCKER',
+                    blackducksca_prComment_enabled: true,
+                    blackducksca_reports_sarif_create: true,
+                    mark_build_status: 'UNSTABLE',
+                    github_token: "$GITHUB_TOKEN",
+                    include_diagnostics: false
             }
         }
         stage('Test') {
