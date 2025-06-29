@@ -24,6 +24,7 @@ pipeline {
                 sh 'echo inside Black Duck Stage'
                 echo "REPO_NAME is  ${REPO_NAME}"
                 echo "GITHUB_TOKEN is ${GITHUB_TOKEN}"
+                echo "DEECT_PROJECT_NAME is ${DETECT_PROJECT_NAME}"
 //                security_scan product: 'blackducksca',
 //                    blackducksca_scan_failure_severities: 'BLOCKER',
 //                    blackducksca_prComment_enabled: true,
