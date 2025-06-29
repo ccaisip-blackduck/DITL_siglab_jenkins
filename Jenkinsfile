@@ -25,6 +25,8 @@ pipeline {
                 echo "REPO_NAME is  ${REPO_NAME}"
                 echo "GITHUB_TOKEN is ${GITHUB_TOKEN}"
                 echo "DEECT_PROJECT_NAME is ${DETECT_PROJECT_NAME}"
+                echo "FULLSCAN is ${FULLSCAN}"
+                echo "PRSCAN is ${PRSCAN}"
                 security_scan product: 'blackducksca',
                     blackducksca_scan_failure_severities: 'NONE',
                     blackducksca_prComment_enabled: true,
