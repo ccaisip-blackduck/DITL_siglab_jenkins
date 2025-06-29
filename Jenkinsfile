@@ -5,7 +5,7 @@ pipeline {
         FULLSCAN = "${env.BRANCH_NAME ==~ /^(main|master|develop|stage|release)$/ ? 'true' : 'false'}"
         PRSCAN = "${env.CHANGE_TARGET ==~ /^(main|master|develop|stage|release)$/ ? 'true' : 'false'}"
         GITHUB_TOKEN = credentials('github-pat')
-        DETECT_PROJECT_NAME = "ccaisip_jenkins_${env.REPO_NAME}"
+        DETECT_PROJECT_NAME = "ccaisip_${env.REPO_NAME}"
     }
     stages {
         stage('Build') { 
