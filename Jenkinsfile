@@ -14,7 +14,7 @@ pipeline {
             }
         }
         stage('Black Duck') {
-            echo 'REPO_NAME is ' $REPO_NAME
+            echo "REPO_NAME is  ${REPO_NAME}"
             when {
                 anyOf {
                     environment name: 'FULLSCAN', value: 'true'
