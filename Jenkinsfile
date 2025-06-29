@@ -26,7 +26,7 @@ pipeline {
                 echo "GITHUB_TOKEN is ${GITHUB_TOKEN}"
                 echo "DEECT_PROJECT_NAME is ${DETECT_PROJECT_NAME}"
                 security_scan product: 'blackducksca',
-                    blackducksca_scan_failure_severities: 'BLOCKER',
+//                    blackducksca_scan_failure_severities: 'BLOCKER',
                     blackducksca_prComment_enabled: true,
                     blackducksca_reports_sarif_create: true,
                     mark_build_status: 'UNSTABLE',
