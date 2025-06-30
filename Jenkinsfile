@@ -33,6 +33,7 @@ pipeline {
                     blackducksca_reports_sarif_create: true,
                     mark_build_status: 'UNSTABLE',
                     github_token: "$GITHUB_TOKEN",
+                    detect_args: "--detect.excluded.detector.types=GIT",
                     include_diagnostics: false
             }
         }
